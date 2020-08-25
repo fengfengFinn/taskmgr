@@ -1,5 +1,5 @@
 <mat-sidenav-container>
-  <mat-sidenav #sidenav mode="side">
+  <mat-sidenav #sidenav mode="over">
     <app-sidebar></app-sidebar>
   </mat-sidenav>
   <div class="site">
@@ -7,7 +7,7 @@
       <app-header (toggle)="sidenav.toggle()"></app-header>
     </header>
     <main>
-      <button (click)="sidenav.toggle()">open</button>
+      <router-outlet></router-outlet>
     </main>
     <footer>
       <app-footer></app-footer>
