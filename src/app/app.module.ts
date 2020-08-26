@@ -1,3 +1,4 @@
+import { ProjectModule } from './project/project.module';
 import { LoginModule } from './login/login.module';
 import { SharedModule } from './shared';
 import { CoreModule } from './core';
@@ -14,6 +15,7 @@ import { AppComponent } from './app.component';
     SharedModule,
     CoreModule,
     LoginModule,
+    ProjectModule,
   ],
   bootstrap: [AppComponent],
 })

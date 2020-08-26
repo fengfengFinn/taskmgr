@@ -1,0 +1,20 @@
+<form>
+  <h2 mat-dialog-title>New Project</h2>
+  <div mat-dialog-content>
+    <mat-form-field class="full-width">
+      <input matInput type="text" placeholder="project name" />
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input matInput type="text" placeholder="project description" />
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button type="button" mat-raised-button (click)="onSaveClick()">
+      Save
+    </button>
+    <span class="fill-remaining-space"></span>
+    <button type="button" mat-stroked-button color="warn" mat-dialog-close>
+      Close
+    </button>
+  </div>
+</form>

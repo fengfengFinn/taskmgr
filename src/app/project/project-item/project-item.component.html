@@ -1,0 +1,27 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      {{ item.name }}
+    </mat-card-title>
+  </mat-card-header>
+  <img mat-card-image [src]="item.coverImg" alt="" />
+  <mat-card-content>
+    {{ item.desc }}
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-stroked-button type="button">
+      <mat-icon>note</mat-icon>
+      <span>edit</span>
+    </button>
+    <span class="fill-remaining-space"></span>
+    <button mat-stroked-button type="button">
+      <mat-icon>group_add</mat-icon>
+      <span>invite</span>
+    </button>
+    <span class="fill-remaining-space"></span>
+    <button mat-stroked-button type="button">
+      <mat-icon>delete</mat-icon>
+      <span>delete</span>
+    </button>
+  </mat-card-actions>
+</mat-card>
