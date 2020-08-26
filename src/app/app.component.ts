@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'taskmgr';
+  // tslint:disable-next-line: variable-name
   private _dark = false;
 
   get dark(): boolean {
