@@ -4,4 +4,8 @@
   </button>
   <mat-icon svgIcon="doctor"></mat-icon>
   <span>EE Platform</span>
+  <span class="fill-remaining-space"></span>
+  <mat-slide-toggle (change)="onChange($event.checked)"
+    >Dark Mode</mat-slide-toggle
+  >
 </mat-toolbar>
