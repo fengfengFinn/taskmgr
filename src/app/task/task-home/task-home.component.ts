@@ -3,13 +3,91 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-task-home',
   templateUrl: './task-home.component.html',
-  styleUrls: ['./task-home.component.scss']
+  styleUrls: ['./task-home.component.scss'],
 })
 export class TaskHomeComponent implements OnInit {
+  lists = [
+    {
+      id: 1,
+      name: 'waiting',
+      tasks: [
+        {
+          id: 1,
+          desc: 'task01 desc',
+          owner: {
+            id: 1,
+            name: 'zhangsan',
+            avatar: 'avatars:svg-1',
+          },
+          dueDate: new Date(),
+        },
+        {
+          id: 2,
+          desc: 'task02 desc',
+          owner: {
+            id: 1,
+            name: 'zhangsan',
+            avatar: 'avatars:svg-1',
+          },
+          dueDate: new Date(),
+        },
+        {
+          id: 3,
+          desc: 'task03 desc',
+          owner: {
+            id: 1,
+            name: 'lisi',
+            avatar: 'avatars:svg-2',
+          },
+          dueDate: new Date(),
+        },
+      ],
+    },
+    {
+      id: 2,
+      name: 'In progress',
+      tasks: [
+        {
+          id: 4,
+          desc: 'task04 desc',
+          owner: {
+            id: 4,
+            name: 'gui4',
+            avatar: 'avatars:svg-4',
+          },
+          dueDate: new Date(),
+        },
+      ],
+    },
+    {
+      id: 3,
+      name: 'Finished',
+      tasks: [
+        {
+          id: 5,
+          desc: 'task05 desc',
+          owner: {
+            id: 3,
+            name: 'kkk3',
+            avatar: 'avatars:svg-3',
+          },
+          dueDate: new Date(),
+        },
+        {
+          id: 6,
+          desc: 'task06 desc',
+          owner: {
+            id: 3,
+            name: 'kkk3',
+            avatar: 'avatars:svg-3',
+          },
+          dueDate: new Date(),
+        },
+      ],
+    },
+  ];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

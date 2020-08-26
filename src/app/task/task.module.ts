@@ -1,3 +1,4 @@
+import { TaskRoutingModule } from './task-routing.module';
 import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { TaskHomeComponent } from './task-home';
@@ -12,6 +13,6 @@ import { TaskListComponent } from './task-list';
     TaskItemComponent,
     TaskListComponent,
   ],
-  imports: [SharedModule],
+  imports: [SharedModule, TaskRoutingModule],
 })
 export class TaskModule {}
