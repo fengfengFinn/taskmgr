@@ -2,6 +2,7 @@
   class="card"
   *ngFor="let project of projects"
   [item]="project"
+  (invite)="openInviteDialog()"
 >
 </app-project-item>
 

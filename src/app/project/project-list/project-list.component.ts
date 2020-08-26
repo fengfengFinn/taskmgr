@@ -1,3 +1,4 @@
+import { InviteComponent } from './../invite/invite.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import { NewProjectComponent } from '../new-project';
@@ -31,5 +32,9 @@ export class ProjectListComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => console.log(result));
+  }
+
+  openInviteDialog(): void {
+    this.dialog.open(InviteComponent);
   }
 }
