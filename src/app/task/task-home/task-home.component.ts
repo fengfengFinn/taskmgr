@@ -1,4 +1,7 @@
+import { NewTaskComponent } from './../new-task/new-task.component';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { CopyTaskComponent } from '../copy-task';
 
 @Component({
   selector: 'app-task-home',
@@ -9,7 +12,7 @@ export class TaskHomeComponent implements OnInit {
   lists = [
     {
       id: 1,
-      name: 'waiting',
+      name: 'Waiting',
       tasks: [
         {
           id: 1,
@@ -108,7 +111,18 @@ export class TaskHomeComponent implements OnInit {
     },
   ];
 
-  constructor() {}
+  constructor(private dialog: MatDialog) {}
 
   ngOnInit(): void {}
+
+  lanuchNewTaskDialog(): void {
+    this.dialog.open(NewTaskComponent);
+  }
+
+  lanuchCopyTasksDialog(): void {
+    this.dialog.open(CopyTaskComponent, {
+      data: { lists: this.lists },
+      width: '300px',
+    });
+  }
 }

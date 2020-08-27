@@ -3,7 +3,7 @@
     <h3>{{ header }}</h3>
   </div>
   <div class="fill">
-    <button mat-button>
+    <button mat-button type="button" (click)="onNewTaskClick()">
       <mat-icon>add_circle_outline</mat-icon>
       <span>new task</span>
     </button>
@@ -20,7 +20,7 @@
     <mat-icon>mode_edit</mat-icon>
     <span>change name</span>
   </button>
-  <button mat-menu-item>
+  <button mat-menu-item (click)="onMoveClick()">
     <mat-icon>label_important</mat-icon>
     <span>move</span>
   </button>
