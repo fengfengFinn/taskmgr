@@ -6,6 +6,7 @@ import {
   style,
   transition,
   animate,
+  keyframes,
 } from '@angular/animations';
 
 @Component({
@@ -20,20 +21,56 @@ import {
           'background-color': 'green',
           height: '100px',
           width: '100px',
-          transform: 'translateX(0)',
+          transform: 'translateY(-100%)',
         })
       ),
       state(
         'red',
         style({
           'background-color': 'red',
-          height: '200px',
-          width: '200px',
-          transform: 'translateX(100%)',
+          height: '100px',
+          width: '100px',
+          transform: 'translateY(100%)',
         })
       ),
-      transition('green=>red', animate('.2s 1s')),
-      transition('red=>green', animate(1000)),
+      transition('green=>red', animate('1s')),
+      transition(
+        'red=>green',
+        animate(
+          5000,
+          keyframes([
+            style({ transform: 'translateY(100%)' }),
+            style({ transform: 'translateY(98%)' }),
+            style({ transform: 'translateY(96%)' }),
+            style({ transform: 'translateY(94%)' }),
+            style({ transform: 'translateY(90%)' }),
+            style({ transform: 'translateY(80%)' }),
+            style({ transform: 'translateY(60%)' }),
+            style({ transform: 'translateY(30%)' }),
+            style({ transform: 'translateY(10%)' }),
+            style({ transform: 'translateY(-20%)' }),
+            style({ transform: 'translateY(-25%)' }),
+            style({ transform: 'translateY(0%)' }),
+            style({ transform: 'translateY(10%)' }),
+            style({ transform: 'translateY(20%)' }),
+            style({ transform: 'translateY(30%)' }),
+            style({ transform: 'translateY(-30%)' }),
+            style({ transform: 'translateY(-35%)' }),
+            style({ transform: 'translateY(-40%)' }),
+            style({ transform: 'translateY(-45%)' }),
+            style({ transform: 'translateY(-50%)' }),
+            style({ transform: 'translateY(-60%)' }),
+            style({ transform: 'translateY(-70%)' }),
+            style({ transform: 'translateY(-71%)' }),
+            style({ transform: 'translateY(-72%)' }),
+            style({ transform: 'translateY(-73%)' }),
+            style({ transform: 'translateY(-80%)' }),
+            style({ transform: 'translateY(-85%)' }),
+            style({ transform: 'translateY(-90%)' }),
+            style({ transform: 'translateY(-95%)' }),
+          ])
+        )
+      ),
     ]),
   ],
 })
