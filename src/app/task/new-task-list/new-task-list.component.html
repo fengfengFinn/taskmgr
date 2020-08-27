@@ -1,11 +1,9 @@
 <form>
-  <h2 mat-dialog-title>Move</h2>
+  <h3 mat-dialog-title>{{ title }}</h3>
   <div mat-dialog-content>
-    <mat-select placeholder="select target list">
-      <mat-option *ngFor="let list of lists" [value]="list.name">{{
-        list.name
-      }}</mat-option>
-    </mat-select>
+    <mat-form-field class="full-width">
+      <input matInput type="text" placeholder="list name" />
+    </mat-form-field>
   </div>
   <div mat-dialog-actions>
     <button type="button" mat-raised-button color="primary">Save</button>

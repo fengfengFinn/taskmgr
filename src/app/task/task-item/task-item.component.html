@@ -5,10 +5,12 @@
     'priority-important': item.priority === 2,
     'priority-emergency': item.priority === 1
   }"
+  (click)="onListItemClick()"
 >
   <mat-checkbox
     class="completion-status"
     [checked]="item.completed"
+    (click)="onCheckBoxClick($event)"
   ></mat-checkbox>
   <div class="center-content-container">
     <div

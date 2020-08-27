@@ -9,7 +9,7 @@
     {{ item.desc }}
   </mat-card-content>
   <mat-card-actions>
-    <button mat-stroked-button type="button">
+    <button mat-stroked-button type="button" (click)="onEditClick()">
       <mat-icon>note</mat-icon>
       <span>edit</span>
     </button>
@@ -19,7 +19,7 @@
       <span>invite</span>
     </button>
     <span class="fill-remaining-space"></span>
-    <button mat-stroked-button type="button">
+    <button mat-stroked-button type="button" (click)="onDeleteClick()">
       <mat-icon>delete</mat-icon>
       <span>delete</span>
     </button>

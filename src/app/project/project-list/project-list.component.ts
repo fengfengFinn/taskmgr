@@ -2,6 +2,7 @@ import { InviteComponent } from './../invite/invite.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import { NewProjectComponent } from '../new-project';
+import { ConfirmDialogComponent } from 'src/app/shared';
 
 @Component({
   selector: 'app-project-list',
@@ -28,7 +29,7 @@ export class ProjectListComponent implements OnInit {
 
   openNewProjectDialog(): void {
     const dialogRef = this.dialog.open(NewProjectComponent, {
-      data: '{1:"Data From ProjectListWindow"}',
+      data: { title: 'New Project' },
     });
 
     dialogRef.afterClosed().subscribe((result) => console.log(result));
@@ -36,5 +37,14 @@ export class ProjectListComponent implements OnInit {
 
   openInviteDialog(): void {
     this.dialog.open(InviteComponent);
+  }
+  openEditDialog(): void {
+    this.dialog.open(NewProjectComponent, { data: { title: 'Edit Project' } });
+  }
+  openDeleteDialog(): void {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      data: { title: 'Delete Project', content: 'Do you confirm?' },
+    });
+    dialogRef.afterClosed().subscribe((result) => console.log(result));
   }
 }

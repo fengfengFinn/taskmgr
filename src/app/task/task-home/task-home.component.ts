@@ -1,6 +1,8 @@
+import { NewTaskListComponent } from './../new-task-list/new-task-list.component';
+import { ConfirmDialogComponent } from 'src/app/shared';
 import { NewTaskComponent } from './../new-task/new-task.component';
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { CopyTaskComponent } from '../copy-task';
 
 @Component({
@@ -116,13 +118,39 @@ export class TaskHomeComponent implements OnInit {
   ngOnInit(): void {}
 
   lanuchNewTaskDialog(): void {
-    this.dialog.open(NewTaskComponent);
+    this.dialog.open(NewTaskComponent, { data: { title: 'New Task' } });
+  }
+
+  lanuchUpdateTaskDialog(task): void {
+    this.dialog.open(NewTaskComponent, {
+      data: { title: 'Update Task', task },
+    });
   }
 
   lanuchCopyTasksDialog(): void {
     this.dialog.open(CopyTaskComponent, {
       data: { lists: this.lists },
       width: '300px',
+    });
+  }
+
+  lanuchDeleteTasksDialog(): void {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      data: { title: 'Delete Task', content: 'Do you confirm?' },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => console.log(result));
+  }
+
+  lanuchListChangeDialog(): void {
+    this.dialog.open(NewTaskListComponent, {
+      data: { title: 'Edit Task List' },
+    });
+  }
+
+  openNewTaskListDialog(): void {
+    this.dialog.open(NewTaskListComponent, {
+      data: { title: 'New Task List' },
     });
   }
 }

@@ -4,14 +4,22 @@
       [header]="list.name"
       (newTask)="lanuchNewTaskDialog()"
       (move)="lanuchCopyTasksDialog()"
+      (delete)="lanuchDeleteTasksDialog()"
+      (listChange)="lanuchListChangeDialog()"
     ></app-task-header>
     <app-task-item
       *ngFor="let task of list.tasks"
       [item]="task"
+      (taskItemClick)="lanuchUpdateTaskDialog(task)"
     ></app-task-item>
   </app-task-list>
 </div>
 
-<button class="fab-button" mat-fab type="button">
+<button
+  class="fab-button"
+  mat-fab
+  type="button"
+  (click)="openNewTaskListDialog()"
+>
   <mat-icon>add</mat-icon>
 </button>

@@ -22,9 +22,10 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-
+import { ConfirmDialogComponent } from './confirm-dialog';
+import 'hammerjs';
 @NgModule({
-  declarations: [],
+  declarations: [ConfirmDialogComponent],
   imports: [
     CommonModule,
     MatToolbarModule,
@@ -75,5 +76,6 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatTooltipModule,
     MatSlideToggleModule,
   ],
+  entryComponents: [ConfirmDialogComponent],
 })
 export class SharedModule {}
