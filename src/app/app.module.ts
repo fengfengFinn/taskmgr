@@ -1,3 +1,4 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TaskModule } from './task/task.module';
 import { ProjectModule } from './project/project.module';
 import { LoginModule } from './login/login.module';
@@ -18,6 +19,7 @@ import { AppComponent } from './app.component';
     LoginModule,
     ProjectModule,
     TaskModule,
+    BrowserAnimationsModule,
   ],
   bootstrap: [AppComponent],
 })
