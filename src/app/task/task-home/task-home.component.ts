@@ -13,7 +13,10 @@ export class TaskHomeComponent implements OnInit {
       tasks: [
         {
           id: 1,
-          desc: 'task01 desc',
+          desc:
+            'task01 desctask01 desctask01 desctask01 desctask01 desctask01 desctask01 desc',
+          completed: false,
+          priority: 3,
           owner: {
             id: 1,
             name: 'zhangsan',
@@ -24,6 +27,8 @@ export class TaskHomeComponent implements OnInit {
         {
           id: 2,
           desc: 'task02 desc',
+          completed: false,
+          priority: 3,
           owner: {
             id: 1,
             name: 'zhangsan',
@@ -34,6 +39,8 @@ export class TaskHomeComponent implements OnInit {
         {
           id: 3,
           desc: 'task03 desc',
+          completed: false,
+          priority: 1,
           owner: {
             id: 1,
             name: 'lisi',
@@ -50,11 +57,20 @@ export class TaskHomeComponent implements OnInit {
         {
           id: 4,
           desc: 'task04 desc',
+          completed: false,
+          priority: 3,
           owner: {
             id: 4,
             name: 'gui4',
             avatar: 'avatars:svg-4',
           },
+          dueDate: new Date(),
+        },
+        {
+          id: 7,
+          desc: 'task07 desc',
+          priority: 1,
+          completed: false,
           dueDate: new Date(),
         },
       ],
@@ -66,16 +82,21 @@ export class TaskHomeComponent implements OnInit {
         {
           id: 5,
           desc: 'task05 desc',
+          completed: true,
+          priority: 2,
           owner: {
             id: 3,
             name: 'kkk3',
             avatar: 'avatars:svg-3',
           },
           dueDate: new Date(),
+          reminder: new Date(),
         },
         {
           id: 6,
           desc: 'task06 desc',
+          completed: true,
+          priority: 1,
           owner: {
             id: 3,
             name: 'kkk3',
