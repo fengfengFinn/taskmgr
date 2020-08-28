@@ -1,7 +1,16 @@
 <div class="tasklists">
   <app-task-list
-    appDroppable
+    app-droppable
+    [dropTags]="['task-item', 'task-list']"
     [dragEnterClass]="'drag-enter'"
+    [app-draggable]="true"
+    [dragTag]="'task-list'"
+    [draggedClass]="'drag-start'"
+    [dragData]="list"
+    (dropped)="handleMove($event)"
+    (drop)="handleDrop()"
+    (dragover)="handleDrop()"
+    (dragleave)="handleDrop()"
     class="list-container"
     *ngFor="let list of lists"
   >

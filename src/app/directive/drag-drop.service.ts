@@ -7,7 +7,7 @@ export interface DragData {
 }
 
 @Injectable()
-export class DrapDropService {
+export class DragDropService {
   // tslint:disable-next-line: variable-name
   private _dragData = new BehaviorSubject<DragData>(null);
 

@@ -1,54 +1,48 @@
 import {
   Directive,
-  HostListener,
+  Input,
   ElementRef,
   Renderer2,
-  Input,
+  HostListener,
 } from '@angular/core';
-import { DrapDropService } from '../drap-drop.service';
+import { DragDropService } from '../drag-drop.service';
 
 @Directive({
-  selector: '[appDraggable]',
+  selector: '[app-draggable][dragTag][draggedClass][dragData]',
 })
 export class DragDirective {
-  // tslint:disable-next-line: variable-name
-  private _isDraggble = false;
-
-  @Input('appDraggable')
-  public set Draggle(draggable: boolean) {
-    this._isDraggble = draggable;
-    this.rd2.setAttribute(this.el.nativeElement, 'draggable', `${draggable}`);
-  }
-
-  public get Draggle(): boolean {
-    return this._isDraggble;
-  }
-
-  @Input() draggedClass: string;
+  private _isDraggable = false;
   @Input() dragTag: string;
+  @Input() draggedClass: string;
   @Input() dragData: any;
+  @Input('app-draggable')
+  set isDraggable(draggable: boolean) {
+    this._isDraggable = draggable;
+    this.rd.setAttribute(this.el.nativeElement, 'draggable', `${draggable}`);
+  }
+
+  get isDraggable() {
+    return this._isDraggable;
+  }
 
   constructor(
     private el: ElementRef,
-    private rd2: Renderer2,
-    private drapdropService: DrapDropService
+    private rd: Renderer2,
+    private service: DragDropService
   ) {}
 
   @HostListener('dragstart', ['$event'])
-  onDragStart(ev: Event): void {
+  onDragStart(ev: Event) {
     if (this.el.nativeElement === ev.target) {
-      this.rd2.addClass(this.el.nativeElement, this.draggedClass);
-      this.drapdropService.setDragData({
-        tag: this.dragTag,
-        data: this.dragData,
-      });
+      this.rd.addClass(this.el.nativeElement, this.draggedClass);
+      this.service.setDragData({ tag: this.dragTag, data: this.dragData });
     }
   }
 
   @HostListener('dragend', ['$event'])
-  onDragEnd(ev: Event): void {
+  onDragEnd(ev: Event) {
     if (this.el.nativeElement === ev.target) {
-      this.rd2.removeClass(this.el.nativeElement, this.draggedClass);
+      this.rd.removeClass(this.el.nativeElement, this.draggedClass);
     }
   }
 }
