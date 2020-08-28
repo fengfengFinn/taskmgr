@@ -55,4 +55,9 @@
   .priority-emergency {
     border-left: 3px solid red;
   }
+
+  .drag-start {
+    opacity: 0.5;
+    border: lightblue dashed 2px;
+  }
 }

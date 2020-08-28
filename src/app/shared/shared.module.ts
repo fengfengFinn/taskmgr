@@ -1,3 +1,4 @@
+import { DirectiveModule } from './../directive';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -23,7 +24,6 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ConfirmDialogComponent } from './confirm-dialog';
-import 'hammerjs';
 @NgModule({
   declarations: [ConfirmDialogComponent],
   imports: [
@@ -50,6 +50,7 @@ import 'hammerjs';
     MatTabsModule,
     MatTooltipModule,
     MatSlideToggleModule,
+    DirectiveModule,
   ],
   exports: [
     CommonModule,
@@ -75,6 +76,7 @@ import 'hammerjs';
     MatTabsModule,
     MatTooltipModule,
     MatSlideToggleModule,
+    DirectiveModule,
   ],
   entryComponents: [ConfirmDialogComponent],
 })
