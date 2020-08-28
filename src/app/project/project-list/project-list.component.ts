@@ -36,45 +36,11 @@ export class ProjectListComponent implements OnInit {
   ngOnInit(): void {}
 
   openNewProjectDialog(): void {
-    // this.projects = [
-    //   ...this.projects,
-    //   {
-    //     id: 3,
-    //     name: 'Project3',
-    //     desc: 'This is Project3',
-    //     coverImg: 'assets/imgs/login.jpg',
-    //   },
-    //   {
-    //     id: 4,
-    //     name: 'Project4',
-    //     desc: 'This is Project4',
-    //     coverImg: 'assets/imgs/login.jpg',
-    //   },
-    // ];
+    const dialogRef = this.dialog.open(NewProjectComponent, {
+      data: { title: 'New Project' },
+    });
 
-    this.projects = this.projects.length
-      ? []
-      : [
-          {
-            id: 1,
-            name: 'Project1',
-            desc: 'This is Project1',
-            coverImg: 'assets/imgs/login.jpg',
-          },
-          {
-            id: 2,
-            name: 'Project2',
-            desc: 'This is Project2',
-            coverImg: 'assets/imgs/login.jpg',
-          },
-        ];
-
-    // const dialogRef = this.dialog.open(NewProjectComponent, {
-    //   data: { title: 'New Project' },
-    // });
-
-    // dialogRef.afterClosed().subscribe((result) => {
-    // });
+    dialogRef.afterClosed().subscribe((result) => {});
   }
 
   openInviteDialog(): void {
