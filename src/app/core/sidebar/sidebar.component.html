@@ -1,13 +1,13 @@
 <mat-nav-list>
   <h3 matSubheader>Project</h3>
-  <mat-list-item>
+  <mat-list-item routerLink="/project" (click)="onNavClick()">
     <mat-icon mat-list-icon svgIcon="projects"></mat-icon>
     <span mat-line>Project Home</span>
     <span matLine matSubheader>view your projects</span>
   </mat-list-item>
   <h3 matSubheader>Calendar</h3>
   <mat-list-item>Cal Home</mat-list-item>
-  <mat-list-item>
+  <mat-list-item routerLink="/tasklists" (click)="onNavClick()">
     <mat-icon mat-list-icon svgIcon="month"></mat-icon>
     <span mat-line>Moth</span>
     <span mat-line mat-subheader> view on month </span>

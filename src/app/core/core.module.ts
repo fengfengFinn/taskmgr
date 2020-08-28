@@ -8,11 +8,23 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppRoutingModule } from '../app-routing.module';
 
 @NgModule({
   declarations: [HeaderComponent, FooterComponent, SidebarComponent],
-  imports: [SharedModule, HttpClientModule, BrowserAnimationsModule],
-  exports: [HeaderComponent, FooterComponent, SidebarComponent],
+  imports: [
+    SharedModule,
+    HttpClientModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+  ],
+  exports: [
+    HeaderComponent,
+    FooterComponent,
+    SidebarComponent,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+  ],
 })
 export class CoreModule {
   constructor(

@@ -1,14 +1,14 @@
-:host {
+.container {
   display: flex;
   flex-flow: row wrap;
   height: 100%;
-}
 
-.card {
-  height: 400px;
-  flex: 0 0 360px;
-  margin: 10px;
-  display: flex;
+  .card {
+    height: 400px;
+    flex: 0 0 360px;
+    margin: 10px;
+    display: flex;
+  }
 }
 .fab-button {
   position: fixed;
