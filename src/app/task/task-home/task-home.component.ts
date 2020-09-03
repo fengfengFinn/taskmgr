@@ -120,6 +120,11 @@ export class TaskHomeComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  handleQuickTask(desc: string, listId: string): void {
+    console.log(desc);
+    console.log(listId);
+  }
+
   lanuchNewTaskDialog(): void {
     this.dialog.open(NewTaskComponent, { data: { title: 'New Task' } });
   }

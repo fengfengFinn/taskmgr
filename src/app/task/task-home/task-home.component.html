@@ -21,6 +21,9 @@
       (delete)="lanuchDeleteTasksDialog()"
       (listChange)="lanuchListChangeDialog()"
     ></app-task-header>
+    <app-quick-task
+      (quickTask)="handleQuickTask($event, list.id)"
+    ></app-quick-task>
     <app-task-item
       *ngFor="let task of list.tasks"
       [item]="task"

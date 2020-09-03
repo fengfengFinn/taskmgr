@@ -28,7 +28,7 @@ export class DropDirective {
   }
 
   @HostListener('dragenter', ['$event'])
-  onDragEnter(ev: Event) {
+  onDragEnter(ev: Event): void {
     ev.preventDefault();
     ev.stopPropagation();
     if (this.el.nativeElement === ev.target) {
@@ -41,7 +41,7 @@ export class DropDirective {
   }
 
   @HostListener('dragover', ['$event'])
-  onDragOver(ev: Event) {
+  onDragOver(ev: Event): void {
     ev.preventDefault();
     ev.stopPropagation();
     if (this.el.nativeElement === ev.target) {
@@ -58,7 +58,7 @@ export class DropDirective {
   }
 
   @HostListener('dragleave', ['$event'])
-  onDragLeave(ev: Event) {
+  onDragLeave(ev: Event): void {
     ev.preventDefault();
     ev.stopPropagation();
     if (this.el.nativeElement === ev.target) {
@@ -71,7 +71,7 @@ export class DropDirective {
   }
 
   @HostListener('drop', ['$event'])
-  onDrop(ev: Event) {
+  onDrop(ev: Event): void {
     ev.preventDefault();
     ev.stopPropagation();
     if (this.el.nativeElement === ev.target) {

@@ -8,6 +8,7 @@ import { TaskListComponent } from './task-list';
 import { NewTaskComponent } from './new-task';
 import { CopyTaskComponent } from './copy-task';
 import { NewTaskListComponent } from './new-task-list/new-task-list.component';
+import { QuickTaskComponent } from './quick-task/quick-task.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { NewTaskListComponent } from './new-task-list/new-task-list.component';
     NewTaskComponent,
     CopyTaskComponent,
     NewTaskListComponent,
+    QuickTaskComponent,
   ],
   imports: [SharedModule, TaskRoutingModule],
   entryComponents: [NewTaskComponent, CopyTaskComponent],

@@ -24,10 +24,13 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ConfirmDialogComponent } from './confirm-dialog';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [ConfirmDialogComponent],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
@@ -54,6 +57,8 @@ import { ConfirmDialogComponent } from './confirm-dialog';
   ],
   exports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
