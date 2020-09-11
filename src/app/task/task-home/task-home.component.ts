@@ -161,7 +161,7 @@ export class TaskHomeComponent implements OnInit {
       data: { title: 'New Task List' },
     });
   }
-  handleDrop() {
+  handleDrop(): void {
     console.log();
   }
   handleMove(srcData): void {

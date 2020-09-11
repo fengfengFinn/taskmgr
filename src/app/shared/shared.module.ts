@@ -25,8 +25,9 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ConfirmDialogComponent } from './confirm-dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ImageListSelectComponent } from './image-list-select';
 @NgModule({
-  declarations: [ConfirmDialogComponent],
+  declarations: [ConfirmDialogComponent, ImageListSelectComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -82,6 +83,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatTooltipModule,
     MatSlideToggleModule,
     DirectiveModule,
+    ImageListSelectComponent,
   ],
   entryComponents: [ConfirmDialogComponent],
 })

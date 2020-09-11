@@ -1,18 +1,28 @@
-<form>
+<form [formGroup]="form" (ngSubmit)="onSubmit(form, $event)">
   <mat-card>
     <mat-card-header>
-      <mat-card-title>
-        Login
-      </mat-card-title>
+      <mat-card-title> Login </mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <mat-form-field class="full-width">
-        <input matInput type="text" placeholder="email" />
+        <input
+          matInput
+          type="text"
+          placeholder="email"
+          formControlName="email"
+        />
       </mat-form-field>
       <mat-form-field class="full-width">
-        <input matInput type="password" placeholder="password" />
+        <input
+          matInput
+          type="password"
+          placeholder="password"
+          formControlName="password"
+        />
+        <mat-error>{{ form.controls["email"].errors | json }}</mat-error>
+        <mat-error>{{ form.controls["password"].errors | json }}</mat-error>
       </mat-form-field>
-      <button mat-raised-button type="button">login</button>
+      <button mat-raised-button type="submit">login</button>
     </mat-card-content>
     <mat-card-actions class="text-right">
       <p>
@@ -32,9 +42,7 @@
       <mat-card-subtitle>Keep on going never give up.</mat-card-subtitle>
     </mat-card-header>
     <img mat-card-image src="assets/imgs/login.jpg" />
-    <mat-card-content>
-      Do one thing at a time, and do well.
-    </mat-card-content>
+    <mat-card-content> Do one thing at a time, and do well. </mat-card-content>
     <!-- <mat-card-footer>
       Never put off what you can do today until tomorrow.
     </mat-card-footer> -->
