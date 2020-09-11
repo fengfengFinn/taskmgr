@@ -1,3 +1,5 @@
+import { Quote } from './../../domain/quote';
+import { QuoteService } from './../../services/quote.service';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import {
   FormGroup,
@@ -14,7 +16,17 @@ import {
 })
 export class LoginComponent implements OnInit {
   form: FormGroup;
-  constructor(private formBuilder: FormBuilder) {}
+  quote: Quote = {
+    cn: 'HelloCn',
+    en: 'HelloEn',
+    pic: 'xxx',
+  };
+  constructor(
+    private formBuilder: FormBuilder,
+    private quoteService$: QuoteService
+  ) {
+    this.quoteService$.getQuote().subscribe((q) => (this.quote = q));
+  }
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({

@@ -33,5 +33,5 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  onSubmit({ value, valid }, e: Event) {}
+  onSubmit({ value, valid }, e: Event): void {}
 }
