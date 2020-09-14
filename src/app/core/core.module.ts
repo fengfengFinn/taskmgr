@@ -1,3 +1,4 @@
+import { ServicesModule } from './../services/services.module';
 import { SharedModule } from './../shared';
 import { loadSvgResources } from './../utils/svg.utils';
 import { NgModule, SkipSelf, Optional } from '@angular/core';
@@ -16,6 +17,7 @@ import 'hammerjs';
   imports: [
     SharedModule,
     HttpClientModule,
+    ServicesModule.forRoot(),
     AppRoutingModule,
     BrowserAnimationsModule,
   ],
