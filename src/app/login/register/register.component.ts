@@ -30,8 +30,16 @@ export class RegisterComponent implements OnInit {
       ],
       repeat: ['', Validators.required],
       avatar: [img],
+      dateOfBirth: ['1994-03-18'],
     });
   }
 
-  onSubmit({ value, valid }, e: Event): void {}
+  onSubmit({ value, valid }, ev: Event): void {
+    ev.preventDefault();
+    if (!valid) {
+      return;
+    }
+
+    console.log(value);
+  }
 }

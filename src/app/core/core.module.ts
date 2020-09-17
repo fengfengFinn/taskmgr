@@ -11,7 +11,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from '../app-routing.module';
 import 'hammerjs';
-
+import '../utils/debug.util';
 @NgModule({
   declarations: [HeaderComponent, FooterComponent, SidebarComponent],
   imports: [

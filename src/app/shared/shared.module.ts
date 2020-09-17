@@ -26,8 +26,13 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ConfirmDialogComponent } from './confirm-dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ImageListSelectComponent } from './image-list-select';
+import { AgeInputComponent } from './age-input/age-input.component';
 @NgModule({
-  declarations: [ConfirmDialogComponent, ImageListSelectComponent],
+  declarations: [
+    ConfirmDialogComponent,
+    ImageListSelectComponent,
+    AgeInputComponent,
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -57,6 +62,7 @@ import { ImageListSelectComponent } from './image-list-select';
     DirectiveModule,
   ],
   exports: [
+    AgeInputComponent,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
