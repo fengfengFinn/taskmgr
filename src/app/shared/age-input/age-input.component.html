@@ -17,27 +17,35 @@
     <mat-datepicker touchUi="true" #birthPicker></mat-datepicker>
   </div>
   <ng-container formGroupName="age">
-    <div class="age-num">
-      <mat-form-field
-        ><input
-          type="number"
-          placeholder="age"
-          matInput
-          formControlName="ageNum"
-      /></mat-form-field>
-    </div>
     <div>
-      <mat-button-toggle-group
-        formControlName="ageUnit"
-        [(ngModel)]="selectedUnit"
-      >
-        <mat-button-toggle *ngFor="let unit of ageUnits" [value]="unit.value">
-          {{ unit.label }}
-        </mat-button-toggle>
-      </mat-button-toggle-group>
+      <div class="ageDiv">
+        <div class="age-num">
+          <mat-form-field
+            ><input
+              type="number"
+              placeholder="age"
+              matInput
+              formControlName="ageNum"
+            />
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-button-toggle-group
+            formControlName="ageUnit"
+            [(ngModel)]="selectedUnit"
+          >
+            <mat-button-toggle
+              *ngFor="let unit of ageUnits"
+              [value]="unit.value"
+            >
+              {{ unit.label }}
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+      </div>
+      <mat-error *ngIf="form.get('age').hasError('ageInvalid')">{{
+        form.controls["age"].errors | json
+      }}</mat-error>
     </div>
-    <mat-error *ngIf="form.get('age').hasError('ageInvalid')">{{
-      form.controls["age"].errors | json
-    }}</mat-error>
   </ng-container>
 </div>

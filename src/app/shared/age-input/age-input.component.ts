@@ -247,18 +247,23 @@ export class AgeInputComponent
   }
 
   private toDate(age: Age): string {
-    const now = Date.now();
-    switch (age.unit) {
-      case AgeUnit.Day:
-        return formatDate(subDays(now, age.age), this.format, this.locale);
-      case AgeUnit.Month:
-        return formatDate(subMonths(now, age.age), this.format, this.locale);
+    try {
+      const now = Date.now();
+      switch (age.unit) {
+        case AgeUnit.Day:
+          return formatDate(subDays(now, age.age), this.format, this.locale);
+        case AgeUnit.Month:
+          return formatDate(subMonths(now, age.age), this.format, this.locale);
 
-      case AgeUnit.Year:
-        return formatDate(subYears(now, age.age), this.format, this.locale);
+        case AgeUnit.Year:
+          return formatDate(subYears(now, age.age), this.format, this.locale);
 
-      default:
-        return null;
+        default:
+          return null;
+      }
+    } catch (error) {
+      console.log(error);
+      return null;
     }
   }
 }
