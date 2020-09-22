@@ -1,3 +1,4 @@
+import { QuoteService } from './../../services';
 import { Quote } from './../../domain/quote';
 import { Component, OnInit } from '@angular/core';
 import {
@@ -6,7 +7,6 @@ import {
   Validators,
   FormBuilder,
 } from '@angular/forms';
-import { QuoteService } from 'src/app/services/services.module';
 
 @Component({
   selector: 'app-login',

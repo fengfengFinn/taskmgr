@@ -13,7 +13,6 @@ import {
   NG_VALIDATORS,
   FormGroup,
   FormBuilder,
-  Validators,
   FormControl,
 } from '@angular/forms';
 import {
@@ -32,12 +31,10 @@ import {
   subMonths,
   differenceInMonths,
   differenceInYears,
-  format,
   subYears,
   parseISO,
-  isDate,
 } from 'date-fns';
-import { formatDate, DatePipe } from '@angular/common';
+import { formatDate } from '@angular/common';
 
 export enum AgeUnit {
   Year = 0,
