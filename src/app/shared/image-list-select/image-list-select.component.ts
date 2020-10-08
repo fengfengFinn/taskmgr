@@ -63,7 +63,6 @@ export class ImageListSelectComponent implements ControlValueAccessor {
             valid: false,
           },
         };
-    console.log(result);
 
     return result;
   }

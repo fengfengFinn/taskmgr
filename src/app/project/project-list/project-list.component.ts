@@ -13,6 +13,9 @@ import {
 } from '@angular/core';
 import { NewProjectComponent } from '../new-project';
 import { ConfirmDialogComponent } from 'src/app/shared';
+import { _MAT_INK_BAR_POSITIONER } from '@angular/material/tabs';
+import * as _ from 'lodash';
+import { filter, switchMap, take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-project-list',
@@ -40,13 +43,26 @@ export class ProjectListComponent implements OnInit {
   }
 
   openNewProjectDialog(): void {
+    const selectedImg = `/assets/img/covers/${Math.floor(
+      Math.random() * 40
+    )}_tn.jpg`;
+
     const dialogRef = this.dialog.open(NewProjectComponent, {
-      data: { title: 'New Project' },
+      data: { thumbnails: this.getThumbnails(), img: selectedImg },
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
-      this.cd.markForCheck();
-    });
+    dialogRef
+      .afterClosed()
+      .pipe(
+        take(1),
+        filter((n) => n),
+        switchMap((p) => this.projService$.add(p))
+      )
+      .subscribe((project) => {
+        console.log(project);
+
+        this.cd.markForCheck();
+      });
   }
 
   openInviteDialog(): void {
@@ -60,5 +76,9 @@ export class ProjectListComponent implements OnInit {
       data: { title: 'Delete Project', content: 'Do you confirm?' },
     });
     dialogRef.afterClosed().subscribe((result) => {});
+  }
+
+  private getThumbnails(): any {
+    return _.range(0, 40).map((i) => `/assets/img/covers/${i}_tn.jpg`);
   }
 }

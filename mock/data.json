@@ -20,15 +20,8 @@
       "avatar": "avatars:svg-1",
       "email": "wpcfan@163.com",
       "id": "37489e0c-df34-c261-71c4-ce75357e3035",
-      "projectIds": [
-        "Sk2HaTagb",
-        "Hya1moGb-"
-      ],
-      "roleIds": [
-        0,
-        1,
-        2
-      ]
+      "projectIds": ["Sk2HaTagb", "Hya1moGb-"],
+      "roleIds": [0, 1, 2]
     },
     {
       "password": "Ls123456",
@@ -36,12 +29,8 @@
       "avatar": "avatars:svg-2",
       "email": "lisi@163.com",
       "id": "BkkDvwee-",
-      "projectIds": [
-        "Sk2HaTagb"
-      ],
-      "roleIds": [
-        1
-      ]
+      "projectIds": ["Sk2HaTagb"],
+      "roleIds": [1]
     }
   ],
   "projects": [
@@ -50,24 +39,15 @@
       "name": "问题跟踪系统",
       "desc": "用于 Bug 的内部跟踪和管理",
       "coverImg": "/assets/img/login.jpg",
-      "members": [
-        "37489e0c-df34-c261-71c4-ce75357e3035",
-        "BkkDvwee-"
-      ]
+      "members": ["37489e0c-df34-c261-71c4-ce75357e3035", "BkkDvwee-"]
     },
     {
       "name": "某某公司 ERP 系统",
       "desc": "为某某公司开发的定制化 ERP 系统",
       "coverImg": "/assets/img/login.jpg",
-      "members": [
-        "37489e0c-df34-c261-71c4-ce75357e3035"
-      ],
+      "members": ["37489e0c-df34-c261-71c4-ce75357e3035"],
       "id": "Hya1moGb-",
-      "taskLists": [
-        "BylTyXiM-b",
-        "BkWpk7jGZb",
-        "H1fTyXjMWW"
-      ]
+      "taskLists": ["BylTyXiM-b", "BkWpk7jGZb", "H1fTyXjMWW"]
     }
   ],
   "taskLists": [
@@ -108,10 +88,7 @@
       "taskListId": "BkenST66lb",
       "ownerId": "37489e0c-df34-c261-71c4-ce75357e3035",
       "completed": true,
-      "participantIds": [
-        "BkkDvwee-",
-        "37489e0c-df34-c261-71c4-ce75357e3035"
-      ],
+      "participantIds": ["BkkDvwee-", "37489e0c-df34-c261-71c4-ce75357e3035"],
       "dueDate": null,
       "reminder": null,
       "createDate": "2017-05-17T14:10:01.159Z",
@@ -164,9 +141,7 @@
       "desc": "首页 banner 增加 2px 的 margin",
       "completed": false,
       "ownerId": "37489e0c-df34-c261-71c4-ce75357e3035",
-      "participantIds": [
-        "BkkDvwee-"
-      ],
+      "participantIds": ["BkkDvwee-"],
       "dueDate": "2017-06-29T16:00:00.000Z",
       "priority": 3,
       "remark": "",
@@ -179,9 +154,7 @@
       "desc": "库存管理 -- 出库操作 API",
       "completed": false,
       "ownerId": "BkkDvwee-",
-      "participantIds": [
-        "37489e0c-df34-c261-71c4-ce75357e3035"
-      ],
+      "participantIds": ["37489e0c-df34-c261-71c4-ce75357e3035"],
       "dueDate": "2017-07-24T16:00:00.000Z",
       "priority": 2,
       "remark": "",
