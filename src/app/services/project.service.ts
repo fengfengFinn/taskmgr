@@ -60,7 +60,6 @@ export class ProjectService {
     const uri = `${this.config.uri}/${this.domain}`;
     return this.http.get(uri, { params: { members_like: userId } }).pipe(
       map((res) => {
-        console.log(res);
         return res as Project[];
       })
     );

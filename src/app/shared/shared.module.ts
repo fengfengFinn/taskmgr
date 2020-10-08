@@ -27,11 +27,13 @@ import { ConfirmDialogComponent } from './confirm-dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ImageListSelectComponent } from './image-list-select';
 import { AgeInputComponent } from './age-input/age-input.component';
+import { ChipsListComponent } from './chips-list/chips-list.component';
 @NgModule({
   declarations: [
     ConfirmDialogComponent,
     ImageListSelectComponent,
     AgeInputComponent,
+    ChipsListComponent,
   ],
   imports: [
     CommonModule,
@@ -90,6 +92,7 @@ import { AgeInputComponent } from './age-input/age-input.component';
     MatSlideToggleModule,
     DirectiveModule,
     ImageListSelectComponent,
+    ChipsListComponent,
   ],
   entryComponents: [ConfirmDialogComponent],
 })
