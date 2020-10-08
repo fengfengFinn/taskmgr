@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "taskmgr"
+    }
+  },
+  "defaultProject": "taskmgr",
+  "cli": {
+    "analytics": false
+  }
 }

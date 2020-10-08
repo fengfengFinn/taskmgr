@@ -1,8 +1,16 @@
+import { Project } from './../../domain/project';
+import { ProjectService } from './../../services/project.service';
 import { listAnimation } from './../../anims/list.anim';
 import { slideToRight } from './../../anims/router.anim';
 import { InviteComponent } from './../invite/invite.component';
 import { MatDialog } from '@angular/material/dialog';
-import { Component, OnInit, HostBinding } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  HostBinding,
+  ChangeDetectorRef,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { NewProjectComponent } from '../new-project';
 import { ConfirmDialogComponent } from 'src/app/shared';
 
@@ -11,36 +19,34 @@ import { ConfirmDialogComponent } from 'src/app/shared';
   templateUrl: './project-list.component.html',
   styleUrls: ['./project-list.component.scss'],
   animations: [slideToRight, listAnimation],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectListComponent implements OnInit {
   i = 3;
-  projects = [
-    {
-      id: 1,
-      name: 'Project1',
-      desc: 'This is Project1',
-      coverImg: 'assets/imgs/login.jpg',
-    },
-    {
-      id: 2,
-      name: 'Project2',
-      desc: 'This is Project2',
-      coverImg: 'assets/imgs/login.jpg',
-    },
-  ];
-
+  projects: Project[] = [];
   @HostBinding('@routeAnim') state;
 
-  constructor(private dialog: MatDialog) {}
+  constructor(
+    private dialog: MatDialog,
+    private cd: ChangeDetectorRef,
+    private projService$: ProjectService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.projService$.get('1').subscribe((projects) => {
+      this.projects = projects;
+      this.cd.markForCheck();
+    });
+  }
 
   openNewProjectDialog(): void {
     const dialogRef = this.dialog.open(NewProjectComponent, {
       data: { title: 'New Project' },
     });
 
-    dialogRef.afterClosed().subscribe((result) => {});
+    dialogRef.afterClosed().subscribe((result) => {
+      this.cd.markForCheck();
+    });
   }
 
   openInviteDialog(): void {

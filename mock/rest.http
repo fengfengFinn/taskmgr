@@ -1,0 +1,37 @@
+GET http://localhost:3000/projects?members_like=1
+
+###
+GET http://localhost:3000/taskLists?projectId=Sk2HaTagb
+
+
+###
+POST http://localhost:3000/taskLists
+Content-Type: application/json
+
+  {
+    "name": "進行中",
+    "projectId": "Sk2HaTagb",
+    "order": 2
+  }
+
+###
+PUT  http://localhost:3000/taskLists/uVzyWdy
+Content-Type: application/json
+
+  {
+    "name": "进行中",
+    "projectId": "Sk2HaTagb",
+    "order": 2
+  }
+
+
+###
+PATCH   http://localhost:3000/taskLists/BkenST66lb
+Content-Type: application/json
+
+  {
+    "name": "待办"
+  }
+
+###
+DELETE http://localhost:3000/taskLists/SkG3Ba6Tgb
