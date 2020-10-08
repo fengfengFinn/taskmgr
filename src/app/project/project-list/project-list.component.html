@@ -4,7 +4,7 @@
     *ngFor="let project of projects"
     [item]="project"
     (invite)="openInviteDialog()"
-    (edit)="openEditDialog()"
+    (edit)="openEditDialog(project)"
     (delete)="openDeleteDialog(project)"
   >
   </app-project-item>

@@ -21,7 +21,7 @@ export class ProjectService {
     const uri = `${this.config.uri}/${this.domain}`;
     return this.http
       .post(uri, JSON.stringify(project), { headers: this.headers })
-      .pipe(map((res) => JSON.parse(res.toString()) as Project));
+      .pipe(map((res) => res as Project));
   }
 
   update(project: Project): Observable<Project> {
@@ -34,11 +34,11 @@ export class ProjectService {
 
     return this.http
       .patch(uri, JSON.stringify(toUpdate), { headers: this.headers })
-      .pipe(map((res) => JSON.parse(res.toString()) as Project));
+      .pipe(map((res) => res as Project));
   }
 
   delete(project: Project): Observable<Project> {
-    const delTasks$ = from(project.taskLists).pipe(
+    const delTasks$ = from(project.taskLists ? project.taskLists : []).pipe(
       mergeMap((listId) =>
         this.http.delete(`${this.config.uri}/taskLists/${listId}`)
       ),
