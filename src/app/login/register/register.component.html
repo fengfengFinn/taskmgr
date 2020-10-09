@@ -1,53 +1,79 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit(form, $event)">
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title> Register </mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <mat-form-field class="full-width">
-        <input matInput type="text" placeholder="name" formGroupName="name" />
-      </mat-form-field>
-      <mat-form-field class="full-width">
-        <input matInput type="text" placeholder="email" formGroupName="email" />
-      </mat-form-field>
-      <mat-form-field class="full-width">
-        <input
-          matInput
-          type="password"
-          placeholder="password"
-          formGroupName="password"
-        />
-      </mat-form-field>
-      <mat-form-field class="full-width">
-        <input
-          matInput
-          type="password"
-          placeholder="confirm password"
-          formGroupName="repeat"
-        />
-      </mat-form-field>
-      <app-image-list-select
-        [useSvgIcon]="true"
-        [cols]="6"
-        [title]="'Select Avatar：'"
-        [items]="avatarItems"
-        formControlName="avatar"
-      >
-      </app-image-list-select>
-      <app-age-input formControlName="dateOfBirth"></app-age-input>
-      <button mat-raised-button style="margin: 15px 0 0 0" type="submit">
-        Register
-      </button>
-    </mat-card-content>
-    <mat-card-actions class="text-right">
-      <p>
-        no account?
-        <a routerLink="/login">login</a>
-      </p>
-      <p>
-        forget password?
-        <a href="">find</a>
-      </p>
-    </mat-card-actions>
+  <mat-card class="card">
+    <mat-tab-group>
+      <mat-tab label="Account Information">
+        <mat-card-header>
+          <mat-card-title> Register </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              type="text"
+              placeholder="name"
+              formGroupName="name"
+            />
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              type="text"
+              placeholder="email"
+              formGroupName="email"
+            />
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              type="password"
+              placeholder="password"
+              formGroupName="password"
+            />
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              type="password"
+              placeholder="confirm password"
+              formGroupName="repeat"
+            />
+          </mat-form-field>
+          <app-image-list-select
+            [useSvgIcon]="true"
+            [cols]="6"
+            [title]="'Select Avatar：'"
+            [items]="avatarItems"
+            formControlName="avatar"
+          >
+          </app-image-list-select>
+
+          <button mat-raised-button style="margin: 15px 0 0 0" type="submit">
+            Register
+          </button>
+        </mat-card-content>
+        <mat-card-actions class="text-right">
+          <p>
+            no account?
+            <a routerLink="/login">login</a>
+          </p>
+          <p>
+            forget password?
+            <a href="">find</a>
+          </p>
+        </mat-card-actions>
+      </mat-tab>
+      <mat-tab label="Persional Information">
+        <app-identity-input
+          formControlName="identity"
+          class="full-width control-padding"
+        ></app-identity-input>
+        <div class="full-width control-padding">
+          <app-age-input formControlName="dateOfBirth"></app-age-input>
+        </div>
+        <div class="full-width control-padding">
+          <app-area-list formControlName="address"></app-area-list>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
   </mat-card>
 </form>

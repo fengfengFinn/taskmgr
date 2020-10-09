@@ -26,14 +26,18 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ConfirmDialogComponent } from './confirm-dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ImageListSelectComponent } from './image-list-select';
-import { AgeInputComponent } from './age-input/age-input.component';
-import { ChipsListComponent } from './chips-list/chips-list.component';
+import { AgeInputComponent } from './age-input/';
+import { ChipsListComponent } from './chips-list/';
+import { IdentityInputComponent } from './identity-input/';
+import { AreaListComponent } from './area-list/';
 @NgModule({
   declarations: [
     ConfirmDialogComponent,
     ImageListSelectComponent,
     AgeInputComponent,
     ChipsListComponent,
+    IdentityInputComponent,
+    AreaListComponent,
   ],
   imports: [
     CommonModule,
@@ -93,6 +97,8 @@ import { ChipsListComponent } from './chips-list/chips-list.component';
     DirectiveModule,
     ImageListSelectComponent,
     ChipsListComponent,
+    IdentityInputComponent,
+    AreaListComponent,
   ],
   entryComponents: [ConfirmDialogComponent],
 })
