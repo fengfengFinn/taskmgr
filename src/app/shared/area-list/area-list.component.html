@@ -1,0 +1,48 @@
+<div class="address-group">
+  <div>
+    <mat-form-field>
+      <mat-label>Choose Province</mat-label>
+      <mat-select
+        [(ngModel)]="address.province"
+        (selectionChange)="onProvinceChange()"
+      >
+        <mat-option *ngFor="let p of provinces$ | async" [value]="p">
+          {{ p }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <mat-label>Choose City</mat-label>
+      <mat-select [(ngModel)]="address.city" (selectionChange)="onCityChange()">
+        <mat-option *ngFor="let c of cities$ | async" [value]="c">
+          {{ c }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <mat-label>Choose District</mat-label>
+      <mat-select
+        [(ngModel)]="address.district"
+        (selectionChange)="onDistrictChange()"
+      >
+        <mat-option *ngFor="let d of districts$ | async" [value]="d">
+          {{ d }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="street">
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Input Street info"
+        [(ngModel)]="address.street"
+        (change)="onStreetChange()"
+      />
+    </mat-form-field>
+  </div>
+</div>

@@ -136,7 +136,7 @@ export class AgeInputComponent
     );
 
     // tslint:disable-next-line: deprecation
-    const age$ = combineLatest(ageNum$, ageUnit$).pipe(
+    const age$ = combineLatest([ageNum$, ageUnit$]).pipe(
       map(([num, unit]) => this.toDate({ age: num, unit })),
       map((d) => {
         return { date: d, from: 'age' };

@@ -18,7 +18,7 @@
       "password": "wp123456",
       "name": "王芃",
       "avatar": "avatars:svg-1",
-      "email": "wpcfan@163.com",
+      "email": "wangfan@163.com",
       "id": "37489e0c-df34-c261-71c4-ce75357e3035",
       "projectIds": ["Sk2HaTagb", "Hya1moGb-"],
       "roleIds": [0, 1, 2]
@@ -38,13 +38,13 @@
       "id": "Sk2HaTagb",
       "name": "问题跟踪系统",
       "desc": "用于 Bug 的内部跟踪和管理",
-      "coverImg": "/assets/img/covers/1.jpg",
+      "coverImg": "/assets/img/login.jpg",
       "members": ["37489e0c-df34-c261-71c4-ce75357e3035", "BkkDvwee-"]
     },
     {
       "name": "某某公司 ERP 系统",
       "desc": "为某某公司开发的定制化 ERP 系统",
-      "coverImg": "/assets/img/covers/20.jpg",
+      "coverImg": "/assets/img/login.jpg",
       "members": ["37489e0c-df34-c261-71c4-ce75357e3035"],
       "id": "Hya1moGb-",
       "taskLists": ["BylTyXiM-b", "BkWpk7jGZb", "H1fTyXjMWW"]
@@ -56,12 +56,6 @@
       "projectId": "Sk2HaTagb",
       "order": 1,
       "id": "BkenST66lb"
-    },
-    {
-      "name": "已完成",
-      "projectId": "Sk2HaTagb",
-      "order": 3,
-      "id": "SkG3Ba6Tgb"
     },
     {
       "name": "待办",
@@ -80,6 +74,12 @@
       "projectId": "Hya1moGb-",
       "order": 3,
       "id": "H1fTyXjMWW"
+    },
+    {
+      "name": "进行中",
+      "projectId": "Sk2HaTagb",
+      "order": 2,
+      "id": "uVzyWdy"
     }
   ],
   "tasks": [
@@ -96,20 +96,6 @@
       "order": 1,
       "remark": "",
       "id": 1
-    },
-    {
-      "id": 2,
-      "desc": "赶快出发去万达",
-      "taskListId": "SkG3Ba6Tgb",
-      "ownerId": "37489e0c-df34-c261-71c4-ce75357e3035",
-      "completed": false,
-      "participantIds": ["37489e0c-df34-c261-71c4-ce75357e3035"],
-      "dueDate": "2017-06-12T16:00:00.000Z",
-      "reminder": "2017-07-18T16:00:00.000Z",
-      "createDate": "2017-05-19T10:03:58.794Z",
-      "priority": 2,
-      "order": 2,
-      "remark": "something"
     },
     {
       "id": 3,

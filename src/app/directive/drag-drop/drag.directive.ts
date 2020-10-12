@@ -11,6 +11,7 @@ import { DragDropService } from '../drag-drop.service';
   selector: '[app-draggable][dragTag][draggedClass][dragData]',
 })
 export class DragDirective {
+  // tslint:disable-next-line:variable-name
   private _isDraggable = false;
   @Input() dragTag: string;
   @Input() draggedClass: string;
@@ -21,6 +22,7 @@ export class DragDirective {
     this.rd.setAttribute(this.el.nativeElement, 'draggable', `${draggable}`);
   }
 
+  // tslint:disable-next-line:typedef
   get isDraggable() {
     return this._isDraggable;
   }
@@ -32,6 +34,7 @@ export class DragDirective {
   ) {}
 
   @HostListener('dragstart', ['$event'])
+  // tslint:disable-next-line:typedef
   onDragStart(ev: Event) {
     if (this.el.nativeElement === ev.target) {
       this.rd.addClass(this.el.nativeElement, this.draggedClass);
@@ -40,6 +43,7 @@ export class DragDirective {
   }
 
   @HostListener('dragend', ['$event'])
+  // tslint:disable-next-line:typedef
   onDragEnd(ev: Event) {
     if (this.el.nativeElement === ev.target) {
       this.rd.removeClass(this.el.nativeElement, this.draggedClass);

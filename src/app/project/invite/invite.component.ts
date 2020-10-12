@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Form, FormGroup } from '@angular/forms';
+import { Component, Inject, OnInit } from '@angular/core';
+import { User } from 'src/app/domain';
 
 @Component({
   selector: 'app-invite',
@@ -6,30 +9,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./invite.component.scss'],
 })
 export class InviteComponent implements OnInit {
-  items = [
-    {
-      id: 1,
-      name: 'zhangsan',
-    },
-    {
-      id: 2,
-      name: 'lisi',
-    },
-    {
-      id: 3,
-      name: 'wangwu',
-    },
-  ];
+  members: User[] = [];
 
-  constructor() {}
+  constructor(
+    private dialogrRef: MatDialogRef<InviteComponent>,
+    @Inject(MAT_DIALOG_DATA) private data
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.members = [...this.data.members];
+  }
 
-  displayUsers(user: { id: string; name: string }): any {
-    if (+user.id > 2) {
-      return `**${user.name}**`;
-    } else {
-      return user.name;
+  onSubmit(form: FormGroup, ev: Event): void {
+    ev.preventDefault();
+    if (!form.valid) {
+      return;
     }
+
+    this.dialogrRef.close(this.members);
   }
 }

@@ -1,14 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  extractInfo,
+  getAddrByCode,
+  isValidAddr,
+} from './../../utils/identity.util';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { debounceTime, filter } from 'rxjs/operators';
+import { isValidDate } from 'src/app/utils/date.util';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit, OnDestroy {
   avatarItems: string[] = [];
   form: FormGroup;
+  sub: Subscription;
+
   private readonly avatarName = 'avatars';
 
   constructor(private fb: FormBuilder) {}
@@ -31,9 +41,36 @@ export class RegisterComponent implements OnInit {
       repeat: ['', Validators.required],
       avatar: [img],
       dateOfBirth: ['1994-03-18'],
+      identity: [],
+      address: [],
+    });
+
+    const id$ = this.form.get('identity').valueChanges.pipe(
+      debounceTime(300),
+      filter((val) => {
+        console.log(val);
+        console.log(this.form.get('identity').valid);
+        return this.form.get('identity').valid;
+      })
+    );
+
+    this.sub = id$.subscribe((id) => {
+      const info = extractInfo(id.identityNo);
+      if (isValidAddr(info.addrCode)) {
+        const addr = getAddrByCode(info.addrCode);
+        this.form.get('address').patchValue(addr);
+      }
+      if (isValidDate(info.dateOfBirth)) {
+        this.form.get('dateOfBirth').patchValue(info.dateOfBirth);
+      }
     });
   }
 
+  ngOnDestroy(): void {
+    if (this.sub) {
+      this.sub.unsubscribe();
+    }
+  }
   onSubmit({ value, valid }, ev: Event): void {
     ev.preventDefault();
     if (!valid) {
