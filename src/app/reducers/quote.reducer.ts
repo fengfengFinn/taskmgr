@@ -18,7 +18,11 @@ export const initialState: State = {
 
 const quoteReducer = createReducer(
   initialState,
-  on(actions.Load, (state, { payload }) => ({ ...state, quote: payload }))
+  on(actions.LoadSuccess, (state, { payload }) => ({
+    ...state,
+    quote: payload,
+  })),
+  on(actions.LoadFail)
 );
 
 export function reducer(state: State = initialState, action: Action): State {

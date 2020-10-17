@@ -24,14 +24,9 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private quoteService$: QuoteService,
     private store$: Store<fromRoot.State>
   ) {
     this.quote$ = this.store$.select(fromRoot.getQuote);
-
-    this.quoteService$.getQuote().subscribe((q) => {
-      this.store$.dispatch(actions.Load({ payload: q }));
-    });
   }
 
   ngOnInit(): void {
@@ -46,6 +41,7 @@ export class LoginComponent implements OnInit {
       ],
       password: ['', Validators.required],
     });
+    this.store$.dispatch(actions.Load());
   }
 
   onSubmit({ value, valid }, ev: Event): void {

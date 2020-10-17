@@ -1,3 +1,4 @@
+import { AppEffectsModule } from './../effects/index';
 import { AppStoreModule } from './../reducers/index';
 import { ServicesModule } from './../services/services.module';
 import { SharedModule } from './../shared';
@@ -20,6 +21,7 @@ import '../utils/debug.util';
     HttpClientModule,
     ServicesModule.forRoot(),
     AppStoreModule,
+    AppEffectsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
   ],
