@@ -41,7 +41,7 @@
       <mat-card-title>Theming({{ (quote$ | async)?.id }})</mat-card-title>
       <mat-card-subtitle>{{ (quote$ | async)?.en }}</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image src="assets/img/login.jpg" />
+    <img mat-card-image style="height: 50%" [src]="(quote$ | async)?.pic" />
     <mat-card-content>{{ (quote$ | async)?.en }}</mat-card-content>
     <!-- <mat-card-footer>
       Never put off what you can do today until tomorrow.
