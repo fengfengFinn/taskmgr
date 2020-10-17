@@ -1,3 +1,4 @@
+import { AppStoreModule } from './../reducers/index';
 import { ServicesModule } from './../services/services.module';
 import { SharedModule } from './../shared';
 import { loadSvgResources } from './../utils/svg.utils';
@@ -18,6 +19,7 @@ import '../utils/debug.util';
     SharedModule,
     HttpClientModule,
     ServicesModule.forRoot(),
+    AppStoreModule,
     AppRoutingModule,
     BrowserAnimationsModule,
   ],
