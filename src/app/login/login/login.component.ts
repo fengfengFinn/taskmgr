@@ -27,10 +27,10 @@ export class LoginComponent implements OnInit {
     private quoteService$: QuoteService,
     private store$: Store<fromRoot.State>
   ) {
-    this.quote$ = this.store$.select((state) => state.quote.quote);
+    this.quote$ = this.store$.select(fromRoot.getQuote);
 
     this.quoteService$.getQuote().subscribe((q) => {
-      this.store$.dispatch({ type: actions.QUOTE_SUCCESS, payload: q });
+      this.store$.dispatch(actions.Load({ payload: q }));
     });
   }
 

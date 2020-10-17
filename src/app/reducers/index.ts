@@ -7,6 +7,7 @@ import {
   ActionReducer,
   ActionReducerMap,
   combineReducers,
+  createSelector,
   StoreModule,
 } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -43,6 +44,10 @@ export function reducer(state: any = initialState, action: any): State {
     return developmentReducer(state, action);
   }
 }
+
+export const getQuotesState = (state: State) => state.quote;
+
+export const getQuote = createSelector(getQuotesState, fromQuote.getQuote);
 
 @NgModule({
   imports: [

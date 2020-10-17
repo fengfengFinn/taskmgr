@@ -1,3 +1,4 @@
-export const QUOTE = 'Quote';
-export const QUOTE_SUCCESS = 'Quote Success';
-export const QUOTE_FAIL = 'Quote Fial';
+import { Quote } from './../domain/quote';
+import { createAction, props } from '@ngrx/store';
+
+export const Load = createAction('[Quote] Load', props<{ payload: Quote }>());
