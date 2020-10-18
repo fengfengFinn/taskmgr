@@ -22,7 +22,6 @@ export class AuthService {
   ) {}
 
   register(user: User): Observable<Auth> {
-    user.id = null;
     const uri = `${this.config.uri}/${this.domain}`;
     return this.http.get(uri, { params: { email: user.email } }).pipe(
       switchMap((res) => {
@@ -32,7 +31,14 @@ export class AuthService {
         }
         return this.http
           .post(uri, JSON.stringify(user), { headers: this.headers })
-          .pipe(map((u) => ({ token: this.token, user: u as User })));
+          .pipe(
+            map((u) => ({
+              token: this.token,
+              user: u as User,
+              id: (u as User)?.id,
+              err: null,
+            }))
+          );
       })
     );
   }
@@ -47,7 +53,9 @@ export class AuthService {
         }
         return {
           token: this.token,
-          User: users[0],
+          user: users[0],
+          userId: users[0]?.id,
+          err: null,
         };
       })
     );

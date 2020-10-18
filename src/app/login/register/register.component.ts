@@ -1,3 +1,4 @@
+import { AppStoreModule } from './../../reducers/index';
 import {
   extractInfo,
   getAddrByCode,
@@ -8,6 +9,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { debounceTime, filter } from 'rxjs/operators';
 import { isValidDate } from 'src/app/utils/date.util';
+import { Store } from '@ngrx/store';
+import * as fromRoot from '../../reducers/index';
+import * as authActions from '../../actions/auth.action';
 
 @Component({
   selector: 'app-register',
@@ -21,7 +25,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
   private readonly avatarName = 'avatars';
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private store$: Store<fromRoot.State>) {}
 
   ngOnInit(): void {
     const img = `${this.avatarName}:svg-${(Math.random() * 16).toFixed()}`;
@@ -47,9 +51,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
     const id$ = this.form.get('identity').valueChanges.pipe(
       debounceTime(300),
-      filter((val) => {
-        console.log(val);
-        console.log(this.form.get('identity').valid);
+      filter(() => {
         return this.form.get('identity').valid;
       })
     );
@@ -73,10 +75,17 @@ export class RegisterComponent implements OnInit, OnDestroy {
   }
   onSubmit({ value, valid }, ev: Event): void {
     ev.preventDefault();
-    if (!valid) {
-      return;
-    }
 
-    console.log(value);
+    this.store$.dispatch(
+      authActions.Register({
+        password: value.password,
+        name: value.name,
+        email: value.email,
+        avatar: value.avatar,
+        identity: value.identity,
+        address: value.address,
+        dateOfBirth: value.dateOfBirth,
+      })
+    );
   }
 }

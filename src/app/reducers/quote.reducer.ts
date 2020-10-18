@@ -16,7 +16,7 @@ export const initialState: State = {
   },
 };
 
-const quoteReducer = createReducer(
+export const reducer = createReducer(
   initialState,
   on(actions.LoadSuccess, (state, { payload }) => ({
     ...state,
@@ -24,9 +24,5 @@ const quoteReducer = createReducer(
   })),
   on(actions.LoadFail)
 );
-
-export function reducer(state: State = initialState, action: Action): State {
-  return quoteReducer(state, action);
-}
 
 export const getQuote = (state: State) => state.quote;

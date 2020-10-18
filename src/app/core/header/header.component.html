@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">
-  <button mat-icon-button (click)="openSidebar()">
+  <button mat-icon-button (click)="openSidebar()" *ngIf="(auth$ | async).token">
     <mat-icon>menu</mat-icon>
   </button>
   <mat-icon svgIcon="doctor"></mat-icon>
@@ -7,5 +7,10 @@
   <span class="fill-remaining-space"></span>
   <mat-slide-toggle (change)="onChange($event.checked)"
     >Dark Mode</mat-slide-toggle
+  >
+  <span
+    ><a mat-button *ngIf="(auth$ | async)?.token" (click)="logout()"
+      >Logout</a
+    ></span
   >
 </mat-toolbar>

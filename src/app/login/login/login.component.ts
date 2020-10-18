@@ -11,7 +11,8 @@ import {
 } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import * as fromRoot from '../../reducers';
-import * as actions from '../../actions/quote.action';
+import * as quoteActions from '../../actions/quote.action';
+import * as authActions from '../../actions/auth.action';
 
 @Component({
   selector: 'app-login',
@@ -32,36 +33,17 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       email: [
-        'xxx@go.com',
-        Validators.compose([
-          Validators.required,
-          Validators.email,
-          this.emailCustomValidate,
-        ]),
+        'lisi@qq.com',
+        Validators.compose([Validators.required, Validators.email]),
       ],
-      password: ['', Validators.required],
+      password: ['123', Validators.required],
     });
-    this.store$.dispatch(actions.Load());
+    this.store$.dispatch(quoteActions.Load());
   }
 
   onSubmit({ value, valid }, ev: Event): void {
     ev.preventDefault();
-    console.log(JSON.stringify(value));
-    console.log(valid);
-  }
 
-  emailCustomValidate(c: FormControl): { [key: string]: any } {
-    if (!c.value) {
-      return null;
-    }
-
-    const pattern = /^wang+/;
-    if (pattern.test(c.value)) {
-      return null;
-    }
-
-    return {
-      emailNotValid: 'The email must start with wang',
-    };
+    this.store$.dispatch(authActions.Login(value));
   }
 }

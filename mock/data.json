@@ -24,10 +24,10 @@
       "roleIds": [0, 1, 2]
     },
     {
-      "password": "Ls123456",
+      "password": "123",
       "name": "李四",
       "avatar": "avatars:svg-2",
-      "email": "lisi@163.com",
+      "email": "lisi@qq.com",
       "id": "BkkDvwee-",
       "projectIds": ["Sk2HaTagb"],
       "roleIds": [1]
