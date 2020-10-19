@@ -16,5 +16,3 @@ export const reducer = createReducer(
 
   on(actions.Logout, () => ({}))
 );
-
-export const getAuth = (state: Auth) => state;

@@ -1,5 +1,4 @@
-import { User } from './../domain/user';
-import { Project } from './../domain/project';
+import { User, Project } from './../domain';
 import { createAction, props } from '@ngrx/store';
 
 export const Add = createAction('[Project] Add', props<Project>());
@@ -44,7 +43,8 @@ export const DeleteFail = createAction(
   props<{ payload: string }>()
 );
 
-export const Load = createAction('[Project] Load', props<{ payload: any }>());
+export const Load = createAction('[Project] Load');
+
 export const LoadSuccess = createAction(
   '[Project] Load Success',
   props<{ payload: Project[] }>()

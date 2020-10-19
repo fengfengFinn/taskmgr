@@ -20,8 +20,15 @@
       "avatar": "avatars:svg-1",
       "email": "wangfan@163.com",
       "id": "37489e0c-df34-c261-71c4-ce75357e3035",
-      "projectIds": ["Sk2HaTagb", "Hya1moGb-"],
-      "roleIds": [0, 1, 2]
+      "projectIds": [
+        "Sk2HaTagb",
+        "Hya1moGb-"
+      ],
+      "roleIds": [
+        0,
+        1,
+        2
+      ]
     },
     {
       "password": "123",
@@ -29,34 +36,47 @@
       "avatar": "avatars:svg-2",
       "email": "lisi@qq.com",
       "id": "BkkDvwee-",
-      "projectIds": ["Sk2HaTagb"],
-      "roleIds": [1]
+      "projectIds": [
+        "Sk2HaTagb"
+      ],
+      "roleIds": [
+        1
+      ]
     }
   ],
   "projects": [
     {
-      "id": "Sk2HaTagb",
-      "name": "问题跟踪系统",
-      "desc": "用于 Bug 的内部跟踪和管理",
-      "coverImg": "/assets/img/login.jpg",
-      "members": ["37489e0c-df34-c261-71c4-ce75357e3035", "BkkDvwee-"]
-    },
-    {
       "name": "某某公司 ERP 系统",
       "desc": "为某某公司开发的定制化 ERP 系统",
       "coverImg": "/assets/img/login.jpg",
-      "members": ["37489e0c-df34-c261-71c4-ce75357e3035"],
+      "members": [
+        "37489e0c-df34-c261-71c4-ce75357e3035"
+      ],
       "id": "Hya1moGb-",
-      "taskLists": ["BylTyXiM-b", "BkWpk7jGZb", "H1fTyXjMWW"]
+      "taskLists": [
+        "BylTyXiM-b",
+        "BkWpk7jGZb",
+        "H1fTyXjMWW"
+      ]
+    },
+    {
+      "name": "project1",
+      "desc": "1111",
+      "coverImg": "/assets/img/covers/3.jpg",
+      "id": "T5-o1tZ"
+    },
+    {
+      "name": "111",
+      "desc": "1111",
+      "coverImg": "/assets/img/covers/2.jpg",
+      "type": "[Project] Add",
+      "members": [
+        "BkkDvwee-"
+      ],
+      "id": "FB0EmNT"
     }
   ],
   "taskLists": [
-    {
-      "name": "待办",
-      "projectId": "Sk2HaTagb",
-      "order": 1,
-      "id": "BkenST66lb"
-    },
     {
       "name": "待办",
       "projectId": "Hya1moGb-",
@@ -74,42 +94,9 @@
       "projectId": "Hya1moGb-",
       "order": 3,
       "id": "H1fTyXjMWW"
-    },
-    {
-      "name": "进行中",
-      "projectId": "Sk2HaTagb",
-      "order": 2,
-      "id": "uVzyWdy"
     }
   ],
   "tasks": [
-    {
-      "desc": "吃晚餐",
-      "taskListId": "BkenST66lb",
-      "ownerId": "37489e0c-df34-c261-71c4-ce75357e3035",
-      "completed": true,
-      "participantIds": ["BkkDvwee-", "37489e0c-df34-c261-71c4-ce75357e3035"],
-      "dueDate": null,
-      "reminder": null,
-      "createDate": "2017-05-17T14:10:01.159Z",
-      "priority": 3,
-      "order": 1,
-      "remark": "",
-      "id": 1
-    },
-    {
-      "id": 3,
-      "desc": "什么情况啊",
-      "taskListId": "BkenST66lb",
-      "ownerId": "BkkDvwee-",
-      "completed": false,
-      "participantIds": [],
-      "dueDate": "2017-06-15T16:00:00.000Z",
-      "reminder": "2017-06-21T16:00:00.000Z",
-      "createDate": "2017-05-23T08:21:04.445Z",
-      "priority": 1,
-      "remark": ""
-    },
     {
       "taskListId": "BylTyXiM-b",
       "desc": "登录鉴权过程中需携带 token 访问 API",
@@ -141,7 +128,9 @@
       "desc": "首页 banner 增加 2px 的 margin",
       "completed": false,
       "ownerId": "37489e0c-df34-c261-71c4-ce75357e3035",
-      "participantIds": ["BkkDvwee-"],
+      "participantIds": [
+        "BkkDvwee-"
+      ],
       "dueDate": "2017-06-29T16:00:00.000Z",
       "priority": 3,
       "remark": "",
@@ -154,7 +143,9 @@
       "desc": "库存管理 -- 出库操作 API",
       "completed": false,
       "ownerId": "BkkDvwee-",
-      "participantIds": ["37489e0c-df34-c261-71c4-ce75357e3035"],
+      "participantIds": [
+        "37489e0c-df34-c261-71c4-ce75357e3035"
+      ],
       "dueDate": "2017-07-24T16:00:00.000Z",
       "priority": 2,
       "remark": "",

@@ -16,9 +16,6 @@ export class AuthEffects {
 
   @Effect()
   auth$ = this.actions$.pipe(
-    tap((val) => {
-      console.log(typeof val);
-    }),
     ofType(actions.Login),
     switchMap((val) => {
       console.log(val);

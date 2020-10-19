@@ -1,9 +1,9 @@
 import { count, map, mapTo, mergeMap, switchMap } from 'rxjs/operators';
-import { Project } from '../domain';
+import { Project, User } from '../domain';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, Inject } from '@angular/core';
 import { from, Observable } from 'rxjs';
-
+import * as _ from 'lodash';
 @Injectable()
 export class ProjectService {
   private readonly domain = 'projects';
@@ -61,6 +61,22 @@ export class ProjectService {
     return this.http.get(uri, { params: { members_like: userId } }).pipe(
       map((res) => {
         return res as Project[];
+      })
+    );
+  }
+
+  invite(projectId: string, users: User[]): Observable<Project> {
+    const uri = `${this.config.uri}/${this.domain}/${projectId}`;
+
+    return this.http.get(uri).pipe(
+      switchMap((projects: Project[]) => {
+        const existingMemebers = projects[0]?.members;
+        const invitedIds = users.map((u) => u.id);
+        const newMembers = _.union(existingMemebers, invitedIds);
+
+        return this.http
+          .patch(uri, { members: newMembers }, { headers: this.headers })
+          .pipe(map((res) => res as Project));
       })
     );
   }
