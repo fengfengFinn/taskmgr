@@ -1,4 +1,4 @@
-import { AuthGuard } from './auth-guard.service';
+import { AuthGuardService } from './auth-guard.service';
 import { NgModule } from '@angular/core';
 import { UserService } from './user.service';
 import { TaskService } from './task.service';
@@ -20,7 +20,7 @@ export class ServicesModule {
         TaskService,
         UserService,
         AuthService,
-        AuthGuard,
+        AuthGuardService,
       ],
     };
   }
