@@ -1,4 +1,4 @@
-<mat-card class="project-item-card">
+<mat-card class="project-item-card" (click)="onClick()">
   <mat-card-header>
     <mat-card-title>
       {{ item.name }}
@@ -9,17 +9,17 @@
     {{ item.desc }}
   </mat-card-content>
   <mat-card-actions>
-    <button mat-stroked-button type="button" (click)="onEditClick()">
+    <button mat-stroked-button type="button" (click)="onEditClick($event)">
       <mat-icon>note</mat-icon>
       <span>edit</span>
     </button>
     <span class="fill-remaining-space"></span>
-    <button mat-stroked-button type="button" (click)="onInviteClick()">
+    <button mat-stroked-button type="button" (click)="onInviteClick($event)">
       <mat-icon>group_add</mat-icon>
       <span>invite</span>
     </button>
     <span class="fill-remaining-space"></span>
-    <button mat-stroked-button type="button" (click)="onDeleteClick()">
+    <button mat-stroked-button type="button" (click)="onDeleteClick($event)">
       <mat-icon>delete</mat-icon>
       <span>delete</span>
     </button>

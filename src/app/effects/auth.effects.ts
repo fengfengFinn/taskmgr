@@ -18,7 +18,6 @@ export class AuthEffects {
   auth$ = this.actions$.pipe(
     ofType(actions.Login),
     switchMap((val) => {
-      console.log(val);
       return this.service.login(val.email, val.password).pipe(
         map((auth) => actions.LoginSuccess(auth)),
         catchError((err: Error) => of(actions.LoginFail(err)))

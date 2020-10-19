@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import * as actions from '../actions/project.action';
+import * as taskListActions from '../actions/task-list.action';
 import * as fromRoot from '../reducers/index';
 import { of } from 'rxjs';
 
@@ -89,5 +90,11 @@ export class ProjectEffects {
   selectProjects$ = this.actions$.pipe(
     ofType(actions.Select),
     map((project) => this.router.navigate([`/tasklists/${project.id}`]))
+  );
+
+  @Effect({ dispatch: false })
+  loadTaskLists$ = this.actions$.pipe(
+    ofType(actions.Select),
+    map((project) => taskListActions.Load({ payload: project.id }))
   );
 }

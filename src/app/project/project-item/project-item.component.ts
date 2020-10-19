@@ -20,6 +20,7 @@ export class ProjectItemComponent implements OnInit {
   @Output() invite = new EventEmitter<void>();
   @Output() edit = new EventEmitter<void>();
   @Output() delete = new EventEmitter<void>();
+  @Output() selected = new EventEmitter<void>();
 
   @HostBinding('@card') cardState = 'out';
 
@@ -34,13 +35,20 @@ export class ProjectItemComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onInviteClick(): void {
+  onInviteClick(ev: Event): void {
+    ev.stopPropagation();
     this.invite.emit();
   }
-  onEditClick(): void {
+  onEditClick(ev: Event): void {
+    ev.stopPropagation();
     this.edit.emit();
   }
-  onDeleteClick(): void {
+  onDeleteClick(ev: Event): void {
+    ev.stopPropagation();
     this.delete.emit();
+  }
+
+  onClick(): void {
+    this.selected.emit();
   }
 }

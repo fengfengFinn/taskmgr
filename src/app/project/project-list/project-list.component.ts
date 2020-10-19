@@ -112,6 +112,10 @@ export class ProjectListComponent implements OnInit, OnDestroy {
     });
   }
 
+  selectProject(project: Project): void {
+    this.store$.dispatch(projectActions.Select(project));
+  }
+
   private getThumbnails(): any {
     return _.range(0, 40).map((i) => `/assets/img/covers/${i}_tn.jpg`);
   }

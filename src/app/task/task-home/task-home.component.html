@@ -12,20 +12,20 @@
     (dragover)="handleDrop()"
     (dragleave)="handleDrop()"
     class="list-container"
-    *ngFor="let list of lists"
+    *ngFor="let list of lists$ | async"
   >
     <app-task-header
       [header]="list.name"
       (newTask)="lanuchNewTaskDialog()"
       (move)="lanuchCopyTasksDialog()"
-      (delete)="lanuchDeleteTasksDialog()"
-      (listChange)="lanuchListChangeDialog()"
+      (delete)="lanuchDeleteTasksDialog(list)"
+      (listChange)="lanuchListChangeDialog(list)"
     ></app-task-header>
     <app-quick-task
       (quickTask)="handleQuickTask($event, list.id)"
     ></app-quick-task>
     <app-task-item
-      *ngFor="let task of list.tasks"
+      *ngFor="let task of list.taskIds"
       [item]="task"
       (taskItemClick)="lanuchUpdateTaskDialog(task)"
     ></app-task-item>
@@ -36,7 +36,7 @@
   class="fab-button"
   mat-fab
   type="button"
-  (click)="openNewTaskListDialog()"
+  (click)="openNewTaskListDialog($event)"
 >
   <mat-icon>add</mat-icon>
 </button>

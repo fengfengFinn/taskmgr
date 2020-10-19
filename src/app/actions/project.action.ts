@@ -67,4 +67,4 @@ export const InviteFail = createAction(
   props<{ payload: string }>()
 );
 
-export const Select = createAction('[Project] Select Fail', props<Project>());
+export const Select = createAction('[Project] Select', props<Project>());
