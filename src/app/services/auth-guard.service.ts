@@ -13,14 +13,14 @@ import { defaultIfEmpty, map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root',
 })
-export class AuthGuard implements CanActivate {
+export class AuthGuardService implements CanActivate {
   constructor(private store$: Store<fromRoot.State>, private router: Router) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> {
-    return of(true);
+    return this.checkAuth();
   }
 
   checkAuth(): Observable<boolean> {
