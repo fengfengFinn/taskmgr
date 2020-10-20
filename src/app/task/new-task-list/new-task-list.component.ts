@@ -26,7 +26,7 @@ export class NewTaskListComponent implements OnInit {
     });
   }
 
-  onSubmit({ value, valid }, ev: Event) {
+  onSubmit({ value, valid }, ev: Event): void {
     ev.preventDefault();
     if (!valid) {
       console.log('return....');

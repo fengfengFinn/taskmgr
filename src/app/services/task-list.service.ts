@@ -19,8 +19,8 @@ export class TaskListService {
   add(taskList: TaskList): Observable<TaskList> {
     const uri = `${this.config.uri}/${this.domain}`;
     return this.http
-      .post(uri, JSON.stringify(taskList), { headers: this.headers })
-      .pipe(map((res) => JSON.parse(res.toString()) as TaskList));
+      .post(uri, taskList, { headers: this.headers })
+      .pipe(map((res) => res as TaskList));
   }
 
   update(taskList: TaskList): Observable<TaskList> {
@@ -30,8 +30,8 @@ export class TaskListService {
     };
 
     return this.http
-      .patch(uri, JSON.stringify(toUpdate), { headers: this.headers })
-      .pipe(map((res) => JSON.parse(res.toString()) as TaskList));
+      .patch(uri, toUpdate, { headers: this.headers })
+      .pipe(map((res) => res as TaskList));
   }
 
   delete(taskList: TaskList): Observable<TaskList> {

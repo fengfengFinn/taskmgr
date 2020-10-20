@@ -1,7 +1,10 @@
 import { Project, TaskList } from './../domain';
 import { createAction, props } from '@ngrx/store';
 
-export const Add = createAction('[TaskList] Add', props<TaskList>());
+export const Add = createAction(
+  '[TaskList] Add',
+  props<{ payload: TaskList }>()
+);
 
 export const AddSuccess = createAction(
   '[TaskList] Add Success',
@@ -13,7 +16,10 @@ export const AddFail = createAction(
   props<{ payload: string }>()
 );
 
-export const Update = createAction('[TaskList] Update', props<TaskList>());
+export const Update = createAction(
+  '[TaskList] Update',
+  props<{ payload: TaskList }>()
+);
 
 export const UpdateSuccess = createAction(
   '[TaskList] Update Success',

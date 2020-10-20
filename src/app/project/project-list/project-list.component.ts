@@ -113,7 +113,7 @@ export class ProjectListComponent implements OnInit, OnDestroy {
   }
 
   selectProject(project: Project): void {
-    this.store$.dispatch(projectActions.Select(project));
+    this.store$.dispatch(projectActions.Select({ payload: project }));
   }
 
   private getThumbnails(): any {

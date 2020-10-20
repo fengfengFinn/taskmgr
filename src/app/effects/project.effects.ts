@@ -1,6 +1,12 @@
 import { Router } from '@angular/router';
 import { ProjectService } from './../services/project.service';
-import { map, switchMap, withLatestFrom, catchError } from 'rxjs/operators';
+import {
+  map,
+  switchMap,
+  withLatestFrom,
+  catchError,
+  tap,
+} from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
@@ -86,15 +92,10 @@ export class ProjectEffects {
     })
   );
 
-  @Effect({ dispatch: false })
+  @Effect()
   selectProjects$ = this.actions$.pipe(
     ofType(actions.Select),
-    map((project) => this.router.navigate([`/tasklists/${project.id}`]))
-  );
-
-  @Effect({ dispatch: false })
-  loadTaskLists$ = this.actions$.pipe(
-    ofType(actions.Select),
-    map((project) => taskListActions.Load({ payload: project.id }))
+    tap((val) => this.router.navigate([`/tasklists/${val.payload.id}`])),
+    switchMap((val) => of(taskListActions.Load({ payload: val.payload.id })))
   );
 }

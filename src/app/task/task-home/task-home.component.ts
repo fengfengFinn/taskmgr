@@ -5,12 +5,11 @@ import { NewTaskListComponent } from './../new-task-list/new-task-list.component
 import { ConfirmDialogComponent } from 'src/app/shared';
 import { NewTaskComponent } from './../new-task/new-task.component';
 import { Component, OnInit, HostBinding } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { CopyTaskComponent } from '../copy-task';
+import { MatDialog } from '@angular/material/dialog';
 import { slideToRight } from 'src/app/anims/router.anim';
 import * as fromRoot from '../../reducers/index';
 import { ActivatedRoute } from '@angular/router';
-import { pluck, take, filter } from 'rxjs/operators';
+import { pluck, take, filter, withLatestFrom } from 'rxjs/operators';
 import * as taskListActions from '../../actions/task-list.action';
 
 @Component({
@@ -21,7 +20,7 @@ import * as taskListActions from '../../actions/task-list.action';
 })
 export class TaskHomeComponent implements OnInit {
   @HostBinding('@routeAnim') state;
-  projectId$: Observable<string>;
+  projectId: string;
   lists$: Observable<TaskList[]>;
 
   constructor(
@@ -29,7 +28,9 @@ export class TaskHomeComponent implements OnInit {
     private store$: Store<fromRoot.State>,
     private activeRouter: ActivatedRoute
   ) {
-    this.projectId$ = this.activeRouter.paramMap.pipe(pluck('id'));
+    this.activeRouter.params
+      .pipe(pluck('id'))
+      .subscribe((id: string) => (this.projectId = id));
     this.lists$ = this.store$.select(fromRoot.getTaskLists);
   }
 
@@ -84,21 +85,37 @@ export class TaskHomeComponent implements OnInit {
       .afterClosed()
       .pipe(take(1))
       .subscribe((result) => {
+        console.log(result);
+        console.log({ ...list, name: result });
+
         this.store$.dispatch(
-          taskListActions.Update({ ...result, id: list.id })
+          taskListActions.Update({ payload: { ...list, name: result } })
         );
       });
   }
 
-  openNewTaskListDialog(ev: Event): void {
+  openNewTaskListDialog(): void {
     const dialogRef = this.dialog.open(NewTaskListComponent, {
       data: { title: 'New Task List' },
     });
     dialogRef
       .afterClosed()
-      .pipe(take(1))
-      .subscribe((result) => {
-        this.store$.dispatch(taskListActions.Add(result));
+      .pipe(
+        take(1),
+        filter((n) => n),
+        withLatestFrom(
+          this.store$.select(fromRoot.getMaxListOrder),
+          ([n, o]) => ({ name: n, order: o ? o : 0 })
+        )
+      )
+      .subscribe(({ name, order }) => {
+        const data = {
+          name,
+          order: +order + 1,
+          projectId: this.projectId,
+        };
+
+        this.store$.dispatch(taskListActions.Add({ payload: data }));
       });
   }
 
