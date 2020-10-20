@@ -73,9 +73,9 @@ const loadProjects = (state: State, data: { payload: Project[] }): State => {
 
 export const reducer = createReducer(
   initialState,
-  on(actions.Select, (state, payload) => ({
+  on(actions.Select, (state, val) => ({
     ...state,
-    selectedId: payload.id,
+    selectedId: val.payload.id,
   })),
   on(actions.AddSuccess, addProject),
   on(actions.InviteSuccess, updateProject),

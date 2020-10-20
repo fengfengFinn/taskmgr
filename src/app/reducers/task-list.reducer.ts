@@ -93,9 +93,9 @@ const loadLists = (state, data: { payload: TaskList[] }) => {
   };
 };
 
-const selectPrj = (state, payload: Project) => {
+const selectPrj = (state, val: { payload: Project }) => {
   const selectedIds = state.ids.filter(
-    (id) => state.entities[id].projectId === payload.id
+    (id) => state.entities[id].projectId === val.payload.id
   );
   return { ...state, selectedIds };
 };
