@@ -4,6 +4,7 @@ import { environment } from './../../environments/environment';
 import * as fromQuote from './quote.reducer';
 import * as fromProject from './project.reducer';
 import * as fromAuth from './auth.reducer';
+import * as authActions from '../actions/auth.action';
 import * as fromTaskLists from './task-list.reducer';
 
 import { NgModule } from '@angular/core';
@@ -54,6 +55,10 @@ const developmentReducer: ActionReducer<State> = compose(
 )(reducers);
 
 export function reducer(state: any = initialState, action: any): State {
+  if (action.type === authActions.Logout.type) {
+    return initialState;
+  }
+
   if (environment.production) {
     return productionReducer(state, action);
   } else {

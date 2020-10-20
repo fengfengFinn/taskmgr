@@ -2,7 +2,7 @@ import { ProjectListComponent } from './project-list';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [{ path: 'project', component: ProjectListComponent }];
+const routes: Routes = [{ path: '', component: ProjectListComponent }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

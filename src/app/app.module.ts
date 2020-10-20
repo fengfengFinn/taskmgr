@@ -1,5 +1,3 @@
-import { TaskModule } from './task/task.module';
-import { ProjectModule } from './project/project.module';
 import { LoginModule } from './login/login.module';
 import { SharedModule } from './shared';
 import { CoreModule } from './core';
@@ -9,14 +7,7 @@ import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    SharedModule,
-    CoreModule,
-    LoginModule,
-    ProjectModule,
-    TaskModule,
-  ],
+  imports: [BrowserModule, SharedModule, CoreModule, LoginModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
